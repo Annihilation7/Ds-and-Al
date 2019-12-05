@@ -6,6 +6,7 @@
 class LoopQueue:
     def __init__(self, capacity=10):
         '''
+        所有 +1 的细节完全队用户屏蔽
         capacity是面向使用者来说的，所以这里的真实容量是capacity + 1
         front==tail表示空，(tail+1)%(capacity+1)==front表示满
         '''
