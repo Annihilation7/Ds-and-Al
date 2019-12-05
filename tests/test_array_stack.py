@@ -1,12 +1,10 @@
-
-
 import sys 
 sys.path.append('.')
 
-from src.stack import Stack
+from src.arraystack import StackArray
 
 
-test = Stack()
+test = StackArray()
 
 # push
 for i in range(20):

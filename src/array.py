@@ -80,7 +80,7 @@ class Array:
         '''
         assert 0 <= index < self.size
 
-        if self.size <= len(self.data) // 4:
+        if self.size <= len(self.data) // 4 and len(self.data) // 2 != 0:
             self._resize(len(self.data) // 2)  # 保证装填因子在50%左右。
 
         ret = self.data[index]
