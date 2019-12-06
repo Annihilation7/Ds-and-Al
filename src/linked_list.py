@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # Email: mazhenyu@datagrand.com
-# Created: 2019-12-07 03:00pm
+# Created: 2019-12-07 03:00am
 
 
 class Node:
@@ -14,6 +14,7 @@ class LinkedList:
         '''
         能做到真正的动态
         add和remove操作真正关心的是"目标索引"的前一个Node
+        在链表头部的操作都是O(1)的时间复杂度
         '''
         self.dummyhead = Node()
         self.size = 0

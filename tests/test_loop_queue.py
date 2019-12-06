@@ -1,7 +1,7 @@
 import sys
 sys.path.append('.')
 
-from src.loopqueue import LoopQueue
+from src.loop_queue import LoopQueue
 
 
 if __name__ == '__main__':

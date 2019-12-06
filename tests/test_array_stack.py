@@ -1,7 +1,7 @@
 import sys 
 sys.path.append('.')
 
-from src.arraystack import StackArray
+from src.array_stack import StackArray
 
 
 test = StackArray()
