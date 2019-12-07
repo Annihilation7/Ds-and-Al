@@ -1,7 +1,7 @@
 import sys
 sys.path.append('.')
 
-from src.linked_list_stack import LinkedListStack
+from src.ds.linked_list_stack import LinkedListStack
 
 
 if __name__ == '__main__':

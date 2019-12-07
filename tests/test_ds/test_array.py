@@ -1,7 +1,7 @@
 import sys
 sys.path.append('.')
 
-from src.array import Array
+from src.ds.array import Array
 
 if __name__ == '__main__':
     test = Array()

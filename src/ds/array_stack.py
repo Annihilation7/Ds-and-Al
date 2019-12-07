@@ -3,7 +3,7 @@
 # Created: 2019-12-03 09:20pm
 
 
-from src.array import Array
+from src.ds.array import Array
 
 
 class StackArray:

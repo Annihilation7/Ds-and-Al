@@ -3,7 +3,7 @@
 # Created: 2019-12-07 04:32am
 
 
-from src.linked_list import LinkedList
+from src.ds.linked_list import LinkedList
 
 
 class LinkedListStack:

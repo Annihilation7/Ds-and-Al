@@ -3,7 +3,7 @@
 # Created: 2019-12-07 12:57pm
 
 
-from src.linked_list_queue import LinkedListQueue
+from src.ds.linked_list_queue import LinkedListQueue
 
 
 if __name__ == '__main__':

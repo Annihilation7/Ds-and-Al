@@ -1,7 +1,7 @@
 import sys
 sys.path.append('.')
 
-from src.linked_list import LinkedList
+from src.ds.linked_list import LinkedList
 
 
 if __name__ == '__main__':
