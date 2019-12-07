@@ -24,6 +24,7 @@ class Solution:
         '''
         left和right索引（左闭右闭）
         哈希表存遍历过的right索引处所指向的字符的信息
+        时间复杂度：O(n)
         '''
         left = 0
         right = 0
@@ -32,7 +33,7 @@ class Solution:
 
         while right < len(s):
             if s[right] in record:
-                # 不取maxbadcase: 'abba'，此时遇到最后一个a的时候left会往左跑！
+                # 不取max的badcase: 'abba'，此时遇到最后一个a的时候left会往左跑！
                 left = max(record[s[right]] + 1, left)
 
             max_len = max(max_len, right - left + 1)
