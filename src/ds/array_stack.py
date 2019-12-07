@@ -6,7 +6,7 @@
 from src.ds.array import Array
 
 
-class StackArray:
+class ArrayStack:
     def __init__(self, capacity=10):
         self.data = Array(capacity)
 
