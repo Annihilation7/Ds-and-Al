@@ -1,18 +1,23 @@
-import sys 
-sys.path.append('.')
-
+import unittest
 from src.ds.array_stack import ArrayStack
 
 
-test = ArrayStack()
+class Test_ArrayStack(unittest.TestCase):
+    def setUp(self) -> None:
+        self.processer = ArrayStack()
 
-# push
-for i in range(20):
-    test.push(i)
-test.printStack()
-# pop
-for i in range(5):
-    test.pop()
-test.printStack()
-# peek
-print(test.peek())
+    def test_all(self):
+        # push
+        for i in range(20):
+            self.processer.push(i)
+        self.processer.printStack()
+        # pop
+        for i in range(5):
+            self.processer.pop()
+        self.processer.printStack()
+        # peek
+        print(self.processer.peek())
+
+
+if __name__ == '__main__':
+    unittest.main()

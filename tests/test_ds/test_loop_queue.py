@@ -1,16 +1,20 @@
-import sys
-sys.path.append('.')
-
+import unittest
 from src.ds.loop_queue import LoopQueue
 
 
-if __name__ == '__main__':
-    test = LoopQueue()
+class Test_LoopQueue(unittest.TestCase):
+    def setUp(self) -> None:
+        self.processer = LoopQueue()
 
-    elems = [i for i in range(40)]
-    for elem in elems:
-        test.enqueue(elem)
-    test.printLoopQueue()
-    for i in range(37):
-        test.dequeue()
-    test.printLoopQueue()
+    def test_all(self):
+        elems = [i for i in range(40)]
+        for elem in elems:
+            self.processer.enqueue(elem)
+        self.processer.printLoopQueue()
+        for i in range(37):
+            self.processer.dequeue()
+        self.processer.printLoopQueue()
+
+
+if __name__ == '__main__':
+    unittest.main()

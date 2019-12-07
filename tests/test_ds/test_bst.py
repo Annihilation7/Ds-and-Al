@@ -7,8 +7,8 @@ from src.ds.bst import BST
 import unittest
 
 
-class TestBST(unittest.TestCase):
-    def setUp(self):
+class Test_BST(unittest.TestCase):
+    def setUp(self) -> None:
         self.processer = BST()
 
     def test_all(self):
