@@ -112,12 +112,27 @@ class LinkedList:
     def removeLast(self):
         return self.remove(self.size - 1)
 
+    def removeElement(self, elem):
+        '''
+        在链表中删除元素elem
+        如果elem不存在，则什么也不做
+        '''
+        assert not self.isEmpty(), 'empty linkedlist'
+        prev = self.dummyhead
+        while prev.next is not None:
+            if prev.next.data == elem:
+                del_node = prev.next
+                prev.next = del_node.next
+                del_node.next = None
+                self.size -= 1
+            prev = prev.next
+
     def printLinkedList(self):
         if self.size == 0:
             print('Empty')
         prev = self.dummyhead
         while prev.next is not None:
-            print(prev.next.data, end=', ')
+            print(prev.next.data, end='->')
             prev = prev.next
         print('None')
         print('Size: {}'.format(self.size))

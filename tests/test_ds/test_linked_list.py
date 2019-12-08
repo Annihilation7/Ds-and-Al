@@ -29,6 +29,9 @@ class Test_LinkedList(unittest.TestCase):
         self.processer.printLinkedList()
         self.processer.removeLast()
         self.processer.printLinkedList()
+        # removeElement
+        self.processer.removeElement(9)
+        self.processer.printLinkedList()
 
 
 if __name__ == '__main__':
