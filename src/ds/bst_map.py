@@ -52,7 +52,7 @@ class BstMap:
         将键为k的node的v设为v
         前提是用户已经明确知道了k一定在map中
         '''
-        return self._set(self.root, k, v)
+        self._set(self.root, k, v)
 
     def remove(self, k):
         '''
@@ -176,21 +176,22 @@ class BstMap:
             node.left = self._remove(node.left, k)
             return node
         # 现在找到了，分三种情况
-        if node.left is None:
-            right_node = node.right
-            node.right = None
-            self.size -= 1
-            return right_node
-        elif node.right is None:
-            left_node = node.left
-            node.left = None
-            self.size -= 1
-            return left_node
-        else:  # 左右子树都不为空
-            successer = minimum(node.right)
-            successer.right = removeMin(node.right)
-            # self.size += 1
-            successer.left = node.left
-            # 也要注意上面两条语句的顺序是不能颠倒的
-            # self.size -= 1
-            return successer
+        else:
+            if node.left is None:
+                right_node = node.right
+                node.right = None
+                self.size -= 1
+                return right_node
+            elif node.right is None:
+                left_node = node.left
+                node.left = None
+                self.size -= 1
+                return left_node
+            else:  # 左右子树都不为空
+                successer = minimum(node.right)
+                successer.right = removeMin(node.right)
+                # self.size += 1
+                successer.left = node.left
+                # 也要注意上面两条语句的顺序是不能颠倒的
+                # self.size -= 1
+                return successer
