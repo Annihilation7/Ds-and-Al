@@ -3,7 +3,7 @@
 # Created: 2019-12-07 01:51pm
 
 
-from src.ds.array_queue import ArrayQueue
+from src.ds.loop_queue import LoopQueue
 from src.ds.array_stack import ArrayStack
 
 
@@ -74,7 +74,7 @@ class BST:
         if self.size == 0:
             print('empty bst')
             return
-        queue = ArrayQueue()
+        queue = LoopQueue()
         queue.enqueue(self.root)
         while not queue.isEmpty():
             node = queue.dequeue()

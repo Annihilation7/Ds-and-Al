@@ -42,29 +42,21 @@ class LinkedListMap:
     def get(self, k):
         '''
         查询键为k的value值
-        不调用contains了，没必要遍历两次
         不存在的话返回None
         '''
-        cur = self.dummy_head.next
-        while cur is not None:
-            if cur.k == k:
-                return cur.v
-            cur = cur.next
-        return None
+        node = self._getNode(k)
+        return node.v if node is not None else None
 
     def set(self, k, v):
         '''
         将键为k的node的v设为v
-        不调用contains了，没必要遍历两次
         前提是用户已经明确知道了k一定在map中
         '''
-        cur = self.dummy_head.next
-        while cur is not None:
-            if cur.k == k:
-                cur.v = v
-                return
-            cur = cur.next
-        raise Exception('No key:"{}" in current map'.format(k))
+        node = self._getNode(k)
+        if node is None:
+            raise Exception('No key:"{}" in current map'.format(k))
+        else:
+            node.v = v
 
     def remove(self, k):
         '''
