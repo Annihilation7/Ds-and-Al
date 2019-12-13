@@ -38,13 +38,14 @@ class Solution:
         while n > 0:
             offset_node = offset_node.next
             n -= 1
-        cur_node = dummyhead
+        pre_node = dummyhead
         while offset_node.next is not None:
             offset_node = offset_node.next
-            cur_node = cur_node.next
+            pre_node = pre_node.next
 
-        del_node = cur_node.next
-        cur_node.next = del_node.next
+        # 此时pre_node位于待删除节点的前一个节点
+        del_node = pre_node.next
+        pre_node.next = del_node.next
         del_node.next = None
 
         return dummyhead.next
