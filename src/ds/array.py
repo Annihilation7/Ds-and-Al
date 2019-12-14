@@ -104,6 +104,15 @@ class Array:
         if index != -1:
             self.remove(index)
 
+    def swap(self, index1, index2):
+        '''
+        交换索引index1和index2上的元素
+        '''
+        assert 0 <= index1 < self.size and 0 <= index2 < self.size, \
+            'invalid index'
+        self.data[index1], self.data[index2] = \
+            self.data[index2], self.data[index1]
+
     def printArray(self):
         for index in range(self.getSize()):
             elem = self.data[index]
