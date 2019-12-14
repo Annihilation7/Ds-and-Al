@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Email: mazhenyu@datagrand.com
+# Email: 763366463@qq.com
 # Created: 2019-12-14 02:27am
 
 
@@ -17,6 +17,20 @@ class Test_MaxHeap(unittest.TestCase):
         # add
         for elem in elems:
             self.processer.add(elem)
+        self.processer.print()
+        # findmax
+        print(self.processer.find_max())
+        # extractMax
+        max_num = self.processer.extractMax()
+        print(max_num)
+        self.processer.print()
+        # replace
+        ret = self.processer.replace(-1)
+        print(ret)
+        self.processer.print()
+        # heapify
+        alist = [3, 5, 7, 2, 1]
+        self.processer.heapify(alist)
         self.processer.print()
 
 

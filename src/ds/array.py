@@ -7,6 +7,13 @@ class Array:
         self.data = [None] * capacity
         self.size = 0
 
+    def deploy_from_list(self, alist):
+        '''
+        将传入的列表作为self.data的数据（没有构造函数重载的痛苦，只能用成员函数来实现了）
+        '''
+        self.data = alist
+        self.size = len(alist)
+
     def getSize(self):
         return self.size
 
