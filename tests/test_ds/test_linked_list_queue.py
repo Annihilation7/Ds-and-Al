@@ -25,6 +25,10 @@ class Test_LinkedListQueue(unittest.TestCase):
         for elem in elems:
             self.processer.enqueue(elem)
         self.processer.print()
+        # enqueue
+        for elem in elems:
+            self.processer.enqueue(elem)
+        self.processer.print()
 
 
 if __name__ == '__main__':
