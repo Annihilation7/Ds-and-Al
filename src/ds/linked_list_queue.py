@@ -48,10 +48,10 @@ class LinkedListQueue:
         retnode = self.head
         self.head = self.head.next
         retnode.next = None  # 和链表彻底断开联系
+        self.size -= 1
         if self.size == 0:
             self.tail = None  # 只有一个元素的时候删完为空，而tail还指着retnode，所以
             # 需要进行维护
-        self.size -= 1
         return retnode.data
 
     def getFront(self):
