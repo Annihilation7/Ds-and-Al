@@ -37,7 +37,7 @@ class SegmentTree:
         self._set(0, 0, self.getSize() - 1, index, e)  # 更新tree
 
     def print(self):
-        print('data: ', end='')
+        print('array_data: ', end='')
         for i in range(self.getSize()):
             print(self.data[i], end=', ')
         print()
