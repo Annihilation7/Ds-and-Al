@@ -4,6 +4,7 @@
 
 
 import unittest
+
 from src.ds.segment_tree import SegmentTree
 
 

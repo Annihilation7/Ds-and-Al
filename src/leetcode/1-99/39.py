@@ -36,4 +36,28 @@ from typing import List
 
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
-        
+        res = []
+        path = []
+
+        if len(candidates) == 0:
+            return []
+
+        candidates.sort()
+
+        self._dfs(candidates, 0, path, res, target)
+
+        return res
+
+    def _dfs(self, candidates, begin_index, path, res, target):
+        if target == 0:
+            res.append(path[:])
+            return
+
+        for i in range(begin_index, len(candidates)):
+            residual = target - candidates[i]
+            if residual < 0:
+                break
+            path.append(candidates[i])
+            self._dfs(candidates, i, path, res, residual)
+
+            path.pop()
