@@ -14,6 +14,7 @@ class ListNode:
         self.val = x
         self.next = None
 
+
 class Solution:
     def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
         length_a = self._get_length(headA)
