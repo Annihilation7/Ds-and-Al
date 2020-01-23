@@ -1,19 +1,18 @@
 # -*- coding: utf-8 -*-
 # Email: 763366463@qq.com
-# Created: 2019-12-07 02:03pm
+# Created: 2020-01-23 01:29pm
 
 
 import unittest
-from src.ds.bst_map import BstMap
+from src.ds.avl_map import AvlMap
 
 
-class Test_BstMap(unittest.TestCase):
+class Test_AvlMap(unittest.TestCase):
     def setUp(self) -> None:
-        self.processer = BstMap()
+        self.processer = AvlMap()
 
     def test_all(self):
         elems = [(5, 'e'), (3, 'c'), (6, 'b'), (8, 'f'), (4, 'd'), (2, 'a')]
-
         # add
         for elem in elems:
             self.processer.add(*elem)
@@ -29,6 +28,9 @@ class Test_BstMap(unittest.TestCase):
         # remove
         self.processer.remove(6)
         self.processer.print()
+        # check
+        print('is bst? {}'.format(self.processer.isBst()))
+        print('is balanced? {}'.format(self.processer.isBalanced()))
 
 
 if __name__ == '__main__':
