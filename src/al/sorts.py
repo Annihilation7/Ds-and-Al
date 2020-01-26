@@ -49,11 +49,11 @@ class SortsFactory:
     def merge_sort_ud(cls, alist):
         """
             自顶向下归并排序 —— O(N ^ logN)，需要额外的O(N)的空间复杂度
-            小数据量下加两条优化条件反而变慢了。。
+            配备两条优化法则
         """
         def _merge_sort(alist, l, r):
             """左闭右闭区间"""
-            if r - l >= 15:  # 优化1，小数据量下改为直接进行插入排序处理
+            if r - l <= 15:  # 优化1，小数据量下改为直接进行插入排序处理
                 SortsFactory._insertion_sort(alist, l, r)
                 return
 
