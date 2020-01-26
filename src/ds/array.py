@@ -2,6 +2,7 @@
 # Email: mazhenyu@datagrand.com
 # Created: 2019-12-03 09:20pm
 
+
 class Array:
     def __init__(self, capacity=10):
         self.data = [None] * capacity
