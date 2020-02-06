@@ -16,7 +16,7 @@ class LinkedListStack:
     def getSize(self):
         return self.data.getSize()
 
-    def isEmpyu(self):
+    def isEmpty(self):
         return self.data.isEmpty()
 
     def push(self, elem):
