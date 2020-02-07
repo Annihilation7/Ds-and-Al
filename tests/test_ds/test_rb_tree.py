@@ -3,8 +3,9 @@
 # Created: 2020-02-07 03:41am
 
 
-from src.ds.rb_tree import RbTree
 import unittest
+
+from src.ds.rb_tree import RbTree
 
 
 class Test_RbTree(unittest.TestCase):

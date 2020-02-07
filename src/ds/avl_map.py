@@ -66,7 +66,8 @@ class AvlMap:
         return isBalanced_node(self.root)
 
     def get(self, k):
-        return True if self._get_node(self.root, k) is not None else False
+        ret_node = self._get_node(self.root, k)
+        return ret_node.v if ret_node is not None else None
 
     def set(self, k, v):
         node = self._get_node(self.root, k)
@@ -88,9 +89,29 @@ class AvlMap:
         print()
 
     def remove(self, elem):
-        '''删除bst中携带元素elem的节点'''
+        '''删除bst中key=elem的节点，并返回其value值。不存在的话返回None'''
         assert not self.isEmpty(), 'empty avl map'
-        self.root = self._remove(self.root, elem)
+        ret_node = self.get(elem)
+        if ret_node is not None:
+            self.root = self._remove(self.root, elem)
+        return ret_node
+
+    def items(self):
+        """
+        返回当前avl树中所有(key, value)的列表，采用前序遍历的方法来做
+        该函数的主要作用是用在了hash table的扩容/所容过程中的元素复制
+        """
+        def _items(node):
+            nonlocal total_keys
+            if node is None:
+                return
+            total_keys.append((node.k, node.v))
+            _items(node.left)
+            _items(node.right)
+
+        total_keys = []
+        _items(self.root)
+        return total_keys
 
     # private
     def _to_balanced(self, y):

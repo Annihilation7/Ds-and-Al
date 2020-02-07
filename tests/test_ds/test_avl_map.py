@@ -31,6 +31,8 @@ class Test_AvlMap(unittest.TestCase):
         # check
         print('is bst? {}'.format(self.processer.isBst()))
         print('is balanced? {}'.format(self.processer.isBalanced()))
+        # total keys-values
+        print('total keys-values: {}'.format(AvlMap().items()))
 
 
 if __name__ == '__main__':
