@@ -12,7 +12,7 @@ import string
 class Test_HashTable(unittest.TestCase):
     def setUp(self) -> None:
         self.processer = HashTable()
-        self.test_size = 100  # hash_table的大小
+        self.test_size = 1000  # hash_table的大小
         self.elems = [
             (i, random.choice(string.ascii_lowercase))
             for i in range(self.test_size)

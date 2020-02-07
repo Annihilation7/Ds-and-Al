@@ -8,20 +8,32 @@ from src.ds.avl_map import AvlMap
 
 class HashTable:
     """
-        本节哈希表的实现原理采用数组avl树的方式来实现，实际上用红黑树是最好的选择，但是
-    上节实现的红黑树并没有实现删除操作，故重在理解而言，问题不大。
+        本节哈希表的实现原理采用数组avl树的方式来实现，实际上用红黑树是最好的选择
+        （前提是键是可比较的！），但是上节实现的红黑树并没有实现删除操作，故重在理解而言，
+        问题不大。如果键是不可比较的，则hash table采用数组套链表来实现，就不要求key
+        具有可比较性了。所以本节实现的hash table要求key是可比较的，因为底层用的avl树。
+
         哈希函数的三个主要性质：一致、高效、均匀性。
-        本节实现的hash table其实就是一个简易的 dict
+
+        本节实现的hash table其实就是一个简易的 dict。
+
+        哈希表虽然性能更优，但是较底层结构为bst的map失去了顺序性，比如说求最大值、最小值。
     """
     # upper_tolerate和lower_tolerate代表了平均每个索引处所容纳键值对个数的上界与下界
     # 有了上面两个量，我们的hash table就支持自动扩容/缩容了
+    capacities = [
+        53, 97, 193, 389, 769, 1543, 3079, 6151, 12289, 24593, 49157,
+        98317, 196613, 393241, 786433, 1572869, 3145739, 6291469, 12582917,
+        25165843, 50331653, 100663319, 201326611, 402653189, 805306457,
+        1610612741
+    ]  # 看，全是素数，可见素数容量对于产生hash index更不容易出现冲突
     upper_tolerate = 10
     lower_tolerate = 2
-    inial_capacity = 2  # 设小点，更能能看到扩容的效果。。。一般默认设为100左右好点
 
     def __init__(self):
         """哈希表构造函数"""
-        self.m = self.inial_capacity
+        self.cap_index = 0  # 初始的index设为0
+        self.m = self.capacities[self.cap_index]
         self.size = 0  # 初始哈希表中没有元素
         # 初始化hash table，注意深拷贝。列表的每个元素都是一个avl树
         self.hash_table = [AvlMap() for _ in range(self.m)]
@@ -47,8 +59,11 @@ class HashTable:
             self.hash_table[hash_idx].add(key, value)
             self.size += 1
 
-            if self.m * self.upper_tolerate <= self.size:
-                self._resize(2 * self.m)  # 扩容为原先容量的两倍
+            if (self.m * self.upper_tolerate <= self.size) and \
+                    self.cap_index + 1 < len(self.capacities):
+                self.cap_index += 1
+                # 扩容
+                self._resize(self.capacities[self.cap_index])
 
     def remove(self, key):
         """删除哈希表中的某个键，并返回其值"""
@@ -57,9 +72,11 @@ class HashTable:
             self.size -= 1
 
             if (self.m * self.lower_tolerate >= self.size) and \
-                    (self.size >= self.inial_capacity * 2):
-                # 所容为原先容量的一半，并且最小缩到self.inial_capacity
-                self._resize(self.m // 2)
+                    (self.size // 2 >= self.capacities[0]) and \
+                    (self.cap_index - 1 >= 0):
+                # 缩容为原先容量的一半
+                self.cap_index -= 1
+                self._resize(self.capacities[self.cap_index])
 
         return ret
 
