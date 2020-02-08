@@ -418,3 +418,20 @@ class AvlTree:
                     self._get_height(ret_node.right)
                 )
         return self._to_balanced(ret_node)
+
+    def print_in_adj_set(self):
+        """
+        专为作为图邻接表基本结构设计的打印的函数，
+        采用中序遍历的方式，这样输出的元素是有序的
+        """
+        def _print_in_adj_set(node):
+            nonlocal data_list
+            if node is None:
+                return
+            _print_in_adj_set(node.left)
+            data_list.append(str(node.data))
+            _print_in_adj_set(node.right)
+
+        data_list = []
+        _print_in_adj_set(self.root)
+        return ' '.join(data_list)

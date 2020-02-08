@@ -127,7 +127,7 @@ class RbTree:
         elif elem < node.data:  # 还是不包含重复元素的
             node.left = self._add(node.left, elem)
 
-        # 注意三个条件不是互斥的
+        # 注意三个条件不是互斥的，而且是有顺序性的
         if self.is_red(node.right) and not self.is_red(node.left):  # 红节点需要左"倾斜"
             node = self._left_rotate(node)
         if self.is_red(node.left) and self.is_red(node.left.left):

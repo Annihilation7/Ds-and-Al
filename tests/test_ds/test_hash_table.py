@@ -3,10 +3,11 @@
 # Created: 2020-02-07 05:11pm
 
 
-import unittest
-from src.ds.hash_table import HashTable
 import random
 import string
+import unittest
+
+from src.ds.hash_table import HashTable
 
 
 class Test_HashTable(unittest.TestCase):

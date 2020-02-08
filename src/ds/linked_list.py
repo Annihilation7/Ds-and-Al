@@ -136,3 +136,12 @@ class LinkedList:
             prev = prev.next
         print('None')
         print('Size: {}'.format(self.size))
+
+    def print_in_adj_list(self):
+        """专为作为图邻接表基本结构设计的打印的函数"""
+        data_list = []
+        pre_node = self.dummyhead
+        while pre_node.next is not None:
+            data_list.append(str(pre_node.next.data))
+            pre_node = pre_node.next
+        return ' '.join(data_list)
