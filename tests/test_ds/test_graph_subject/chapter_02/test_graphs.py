@@ -4,13 +4,16 @@
 
 
 import unittest
-from src.ds.graph_subject.chapter_02 import adj_matrix, adj_list, adj_set
+from src.ds.graph_subject.chapter_02 import \
+    adj_matrix, adj_list, adj_set, my_adj_set
 
 
 class Test_Graphs(unittest.TestCase):
     def setUp(self) -> None:
+        self.file_path = 'src/ds/graph_subject/data/g1.txt'
         self.graphs = [
-            adj_matrix.AdjMatrix(), adj_list.AdjList(), adj_set.AdjSet()
+            adj_matrix.AdjMatrix(self.file_path), adj_list.AdjList(self.file_path),
+            adj_set.AdjSet(self.file_path), my_adj_set.MyAdjSet(self.file_path)
         ]
 
     def test_all(self):

@@ -9,11 +9,10 @@ from src.ds.graph_subject.chapter_02.graph_base import GraphBase
 
 class AdjSet(GraphBase):
     """
-    图的"邻接表(TreeSet)"表示法。建图空间复杂度为O(Elog(V))，时间复杂度为O(E*V)
+    图的"邻接表(AvlTree)"表示法。建图空间复杂度为O(Elog(V))，时间复杂度为O(E*V)
     我这里采取Avl数来代替红黑树了，因为红黑树中并没有实现删除元素的操作。
-    后面的图的底层表示就全用这个了。
     """
-    def __init__(self, filepath='src/ds/graph_subject/data/g.txt'):
+    def __init__(self, filepath):
         self._build_graph(filepath)
 
     def __str__(self):

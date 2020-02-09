@@ -13,7 +13,7 @@ class AdjList(GraphBase):
     由于has_edge以及adjacent的时间复杂度不令人满意，因此其改进措施就是将链表换成
     哈希表或者红黑树就可以了。
     """
-    def __init__(self, filepath='src/ds/graph_subject/data/g.txt'):
+    def __init__(self, filepath):
         self._build_graph(filepath)
 
     def __str__(self):
