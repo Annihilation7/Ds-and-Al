@@ -35,8 +35,8 @@ class AdjMatrix(GraphBase):
 
     def has_edge(self, v, w):
         """判断两个Vertex之间是否存在边，O(1)"""
-        self._validate_vertex(v)
-        self._validate_vertex(w)
+        self.validate_vertex(v)
+        self.validate_vertex(w)
         return self.adj[v][w] == 1
 
     def adjacent(self, v):
@@ -44,7 +44,7 @@ class AdjMatrix(GraphBase):
         拿到所有与输入Vertex相邻的Vertex，O(V)
         非常重要的函数，时间复杂度是O(V)难以接受。
         """
-        self._validate_vertex(v)
+        self.validate_vertex(v)
         return [i for i in range(self.V) if self.adj[v][i] == 1]
 
     def degree(self, v):

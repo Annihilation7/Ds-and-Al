@@ -24,3 +24,6 @@ dist/
 
 # Pycharm editor settings
 .idea
+
+# Vscode
+.vscode

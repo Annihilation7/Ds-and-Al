@@ -35,13 +35,13 @@ class MyAdjSet(GraphBase):
 
     def has_edge(self, v, w):
         """判断两个Vertex之间是否存在边，O(1)"""
-        self._validate_vertex(v)
-        self._validate_vertex(w)
+        self.validate_vertex(v)
+        self.validate_vertex(w)
         return w in self.adj[v]
 
     def adjacent(self, v):
         """拿到所有与输入Vertex相邻的Vertex，返回对应的hash set，O(1)"""
-        self._validate_vertex(v)
+        self.validate_vertex(v)
         return self.adj[v]
 
     def degree(self, v):
