@@ -8,7 +8,7 @@ from src.ds.graph_subject.chapter_04 import cc
 import unittest
 
 
-class Test_GraphDfs(unittest.TestCase):
+class Test_CC(unittest.TestCase):
     def setUp(self) -> None:
         self.test_adj_matrix = cc.CC(
             adj_matrix.AdjMatrix('src/ds/graph_subject/data/g2.txt')

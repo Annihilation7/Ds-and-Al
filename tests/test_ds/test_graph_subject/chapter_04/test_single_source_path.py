@@ -8,7 +8,7 @@ from src.ds.graph_subject.chapter_04 import single_source_path
 import unittest
 
 
-class Test_GraphDfs(unittest.TestCase):
+class Test_SingleSourcePath(unittest.TestCase):
     def setUp(self) -> None:
         self.source = 0  # 源设为0
         self.test_adj_matrix = single_source_path.SingleSourcePath(
