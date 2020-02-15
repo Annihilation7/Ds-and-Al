@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 # Email: 763366463@qq.com
-# Created: 2020-02-11 09:36pm
+# Created: 2020-02-15 05:40pm
 
 
 from src.ds.graph_subject.chapter_02 import my_adj_set, adj_matrix
-from src.ds.graph_subject.chapter_04 import bipartition_detection
+from src.ds.graph_subject.chapter_05 import bipartition_detection
 import unittest
 
 

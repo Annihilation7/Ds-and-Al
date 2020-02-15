@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 # Email: 763366463@qq.com
-# Created: 2020-02-11 10:03pm
+# Created: 2020-02-15 05:35pm
+
+
+import queue
 
 
 class BiPartitionDetection:
@@ -17,7 +20,7 @@ class BiPartitionDetection:
         for v in range(self.graph.V):  # 考虑连通分量不只一个的情形
             if self.colors[v] == -1:  # 没被染过色
                 # 初始染成0，染成1也一样，无所谓这个
-                self.bipartite_flag = self._dfs(v, 0)
+                self.bipartite_flag = self._bfs(v)
                 if not self.bipartite_flag:  # 提前结束
                     break
 
@@ -36,14 +39,19 @@ class BiPartitionDetection:
         return res
 
     # private
-    def _dfs(self, v, color):
-        """dfs，O(V+E)"""
-        self.colors[v] = color
-        for w in self.graph.adjacent(v):
-            if self.colors[w] == -1:
-                if not self._dfs(w, 1 - color):  # 相邻节点换颜色
-                    return False
-            else:  # 已经遍历过了，那就检查一下
-                if self.colors[w] == self.colors[v]:
+    def _bfs(self, v):
+        """bfs，O(V+E)"""
+        q = queue.Queue()
+        q.put(v)
+        self.colors[v] = 0  # 1也一样，无所谓的
+
+        while not q.empty():
+            head = q.get()
+            for w in self.graph.adjacent(head):
+                if self.colors[w] == -1:  # 没被遍历过
+                    q.put(w)
+                    self.colors[w] = 1 - self.colors[head]  # 和head反色
+                # 被遍历过并且不和head反色，那就返回False
+                elif self.colors[w] != 1 - self.colors[head]:
                     return False
         return True

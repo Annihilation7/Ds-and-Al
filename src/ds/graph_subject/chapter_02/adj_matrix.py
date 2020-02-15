@@ -12,6 +12,7 @@ class AdjMatrix(GraphBase):
     空间复杂度较高，为O(V^2)，所以该图也叫稠密图。
     在表述"稀疏图"的时候有比较大的空间缺陷。
     """
+
     def __init__(self, filepath):
         self._build_graph(filepath)
 

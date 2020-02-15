@@ -1,21 +1,22 @@
 # -*- coding: utf-8 -*-
 # Email: 763366463@qq.com
-# Created: 2020-02-12 12:47am
+# Created: 2020-02-15 03:51pm
 
 
 from src.ds.graph_subject.chapter_02 import my_adj_set, adj_matrix
-from src.ds.graph_subject.chapter_04 import single_source_path
+from src.ds.graph_subject.chapter_05 import single_source_path
 import unittest
 
 
 class Test_SingleSourcePath(unittest.TestCase):
     def setUp(self) -> None:
+        graph_file_path = 'src/ds/graph_subject/data/g5.txt'
         source = 0  # 源设为0
         self.test_adj_matrix = single_source_path.SingleSourcePath(
-            adj_matrix.AdjMatrix('src/ds/graph_subject/data/g2.txt'), source
+            adj_matrix.AdjMatrix(graph_file_path), source
         )
         self.test_adj_set = single_source_path.SingleSourcePath(
-            my_adj_set.MyAdjSet('src/ds/graph_subject/data/g2.txt'), source
+            my_adj_set.MyAdjSet(graph_file_path), source
         )
 
     def test_all(self):

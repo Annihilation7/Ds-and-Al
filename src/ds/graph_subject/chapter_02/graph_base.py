@@ -13,11 +13,13 @@ class GraphBase(metaclass=abc.ABCMeta):
         """打印图的成员函数"""
         pass
 
+    @property
     @abc.abstractmethod
     def V(self):
         """返回Vertex的数量"""
         pass
 
+    @property
     @abc.abstractmethod
     def E(self):
         """返回Edge的数量"""

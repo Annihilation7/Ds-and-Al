@@ -189,8 +189,7 @@ class BST:
             self.size -= 1
             return right_node
 
-        if node.left is not None:
-            node.left = self._removeMin(node.left)
+        node.left = self._removeMin(node.left)
         return node
 
     def _removeMax(self, node):
@@ -201,8 +200,7 @@ class BST:
             self.size -= 1
             return left_node
 
-        if node.right is not None:
-            node.right = self._removeMax(node.right)
+        node.right = self._removeMax(node.right)
         return node
 
     def _remove(self, node, elem):
